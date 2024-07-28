@@ -25,7 +25,7 @@
         }
 
         h2 {
-            color: $pinkred;
+            color: $purple;
         }
 
         hr {
@@ -77,13 +77,13 @@
                 }
 
                 &:hover {
-                    border: 2px solid $pinkred;
+                    border: 2px solid $purple;
                     background-color: $lightgrey;
                 }
             }
 
             .selected {
-                border: 2px solid $pinkred;
+                border: 2px solid $tangerine;
                 background-color: $lightgrey;
             }
         }
@@ -117,13 +117,13 @@
                 }
 
                 &:hover {
-                    border: 2px solid $pinkred;
+                    border: 2px solid $purple;
                     background-color: $lightgrey;
                 }
             }
 
             .selected {
-                border: 2px solid $pinkred;
+                border: 2px solid $tangerine;
                 background-color: $lightgrey;
             }
         }
@@ -203,7 +203,7 @@
         }
 
         h2 {
-            color: $pinkred;
+            color: $purple;
         }
 
         hr {
@@ -241,13 +241,13 @@
                 }
 
                 &:hover {
-                    border: 2px solid $pinkred;
+                    border: 2px solid $purple;
                     background-color: $lightgrey;
                 }
             }
 
             .selected {
-                border: 2px solid $pinkred;
+                border: 2px solid $tangerine;
                 background-color: $lightgrey;
             }
         }
@@ -279,7 +279,7 @@
                     cursor: pointer;
 
                     &:hover {
-                        color: $pinkred;
+                        color: $purple;
                     }
                 }
             }

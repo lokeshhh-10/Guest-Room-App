@@ -4,7 +4,7 @@ $lightgrey: #F7F8F8;
 $grey: #bdb9b9;
 $darkgrey: #969393;
 $purple : #7f46f0;
-$tangerine : '#969393';
+$tangerine : #ee7600;
 
 @mixin shadow {
     box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.2);
@@ -12,14 +12,24 @@ $tangerine : '#969393';
 
 @mixin buttonStyle {
     padding: 10px 15px;
-    background-color: $pinkred;
-    border: none;
     font-size: 20px;
     font-weight: 600;
+    font-family: "Nunito", sans-serif;
+    background-color: $purple;
     cursor: pointer;
-    transition: 0.3s ease;
-    color: white;
-    border-radius: 10px;
+    display: inline-block;
+    height: 43px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+    transition: 0.3s;
+    
+    &:hover {
+        background-color: #151111;
+    }
 }
 
 :export {

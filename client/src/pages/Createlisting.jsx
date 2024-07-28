@@ -278,7 +278,7 @@ const CreateListing = () => {
                     sx={{
                       fontSize: "25px",
                       cursor: "pointer",
-                      "&:hover": { color: variables.pinkred },
+                      "&:hover": { color: variables.purple },
                     }}
                   />
                   <p>{guestCount}</p>
@@ -289,7 +289,7 @@ const CreateListing = () => {
                     sx={{
                       fontSize: "25px",
                       cursor: "pointer",
-                      "&:hover": { color: variables.pinkred },
+                      "&:hover": { color: variables.purple },
                     }}
                   />
                 </div>
@@ -305,7 +305,7 @@ const CreateListing = () => {
                     sx={{
                       fontSize: "25px",
                       cursor: "pointer",
-                      "&:hover": { color: variables.pinkred },
+                      "&:hover": { color: variables.purple },
                     }}
                   />
                   <p>{bedroomCount}</p>
@@ -316,7 +316,7 @@ const CreateListing = () => {
                     sx={{
                       fontSize: "25px",
                       cursor: "pointer",
-                      "&:hover": { color: variables.pinkred },
+                      "&:hover": { color: variables.purple },
                     }}
                   />
                 </div>
@@ -332,7 +332,7 @@ const CreateListing = () => {
                     sx={{
                       fontSize: "25px",
                       cursor: "pointer",
-                      "&:hover": { color: variables.pinkred },
+                      "&:hover": { color: variables.purple },
                     }}
                   />
                   <p>{bedCount}</p>
@@ -343,7 +343,7 @@ const CreateListing = () => {
                     sx={{
                       fontSize: "25px",
                       cursor: "pointer",
-                      "&:hover": { color: variables.pinkred },
+                      "&:hover": { color: variables.purple },
                     }}
                   />
                 </div>
@@ -359,7 +359,7 @@ const CreateListing = () => {
                     sx={{
                       fontSize: "25px",
                       cursor: "pointer",
-                      "&:hover": { color: variables.pinkred },
+                      "&:hover": { color: variables.purple },
                     }}
                   />
                   <p>{bathroomCount}</p>
@@ -370,7 +370,7 @@ const CreateListing = () => {
                     sx={{
                       fontSize: "25px",
                       cursor: "pointer",
-                      "&:hover": { color: variables.pinkred },
+                      "&:hover": { color: variables.purple },
                     }}
                   />
                 </div>
