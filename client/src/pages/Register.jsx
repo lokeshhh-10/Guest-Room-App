@@ -67,7 +67,7 @@ const Register = () => {
       <div className="box">
         <div className="inner-box">
           <div className="forms-wrap">
-            <form className="sign-up-form" onSubmit={handleSubmit}>
+            <form className="Login-form" onSubmit={handleSubmit}>
               <div className="logo">
                 <img src="/assets/logo1.png" alt="Rabbit Homes" />
                 <h4>Rabbit Homes</h4>
@@ -75,7 +75,7 @@ const Register = () => {
               <div className="heading">
                 <h2>Get Started</h2>
                 <h6>Already have an account?</h6>
-                <a href="#" className="toggle">
+                <a href="/login" className="toggle">
                   Sign in
                 </a>
               </div>
@@ -89,7 +89,7 @@ const Register = () => {
                     className="input-field"
                     required
                   />
-                  <label>Name</label>
+                  <label className="Lables">Name</label>
                 </div>
                 <div className="input-wrap">
                   <input
@@ -102,7 +102,7 @@ const Register = () => {
                     autoComplete="off"
                     required
                   />
-                  <label>Email</label>
+                  <label className="Lables">Email</label>
                 </div>
                 <div className="input-wrap">
                   <input
@@ -115,12 +115,9 @@ const Register = () => {
                     autoComplete="off"
                     required
                   />
-                  <label>Password</label>
+                  <label className="Lables">Password</label>
                 </div>
-                <input
-                  type="submit"
-                  className="sign-btn"
-                />
+                <input type="submit" className="sign-btn" />
                 {/* <button type="submit" className="sign-btn">
                   Submit
                 </button> */}

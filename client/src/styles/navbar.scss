@@ -2,7 +2,7 @@
 @import "./breakpoints.scss";
 
 .navbar {
-    padding: 10px 80px;
+    padding: 0px 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -109,7 +109,7 @@
                 font-weight: 700;
 
                 &:hover {
-                    color: #8371fd;
+                    color: $purple;
                     background-color: rgba(217, 213, 213, 0.2);
                 }
             }

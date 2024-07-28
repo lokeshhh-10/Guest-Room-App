@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "../styles/register.scss";
-import { setLogin } from "../redux/state"
-import { useDispatch } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import { setLogin } from "../redux/state";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
- 
 const Login = () => {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const inputs = document.querySelectorAll(".input-field");
@@ -49,7 +48,7 @@ const Login = () => {
   //       )
   //       navigate("/");
   //     }
-      
+
   //   } catch (err) {
   //     console.log("Login failed", err.message);
   //   }
@@ -94,14 +93,12 @@ const Login = () => {
     }
   };
 
-
-
   return (
     <main>
       <div className="box">
         <div className="inner-box">
           <div className="forms-wrap">
-            <form className="sign-in-form" onSubmit={handleSubmit}>
+            <form className="Login-form" onSubmit={handleSubmit}>
               <div className="logo">
                 <img src="/assets/logo1.png" alt="easyclass" />
                 <h4>Rabbit Homes</h4>
@@ -110,7 +107,7 @@ const Login = () => {
               <div className="heading">
                 <h2>Welcome Back</h2>
                 <h6>Not registred yet?</h6>
-                <a href="#" className="toggle">
+                <a href="/register" className="toggle">
                   Sign up
                 </a>
               </div>
@@ -125,7 +122,7 @@ const Login = () => {
                     className="input-field"
                     required
                   />
-                  <label>Email</label>
+                  <label className="Lables">Email</label>
                 </div>
 
                 <div className="input-wrap">
@@ -134,10 +131,10 @@ const Login = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     minLength="4"
-                    className="input-field"        
+                    className="input-field"
                     required
                   />
-                  <label>Password</label>
+                  <label className="Lables">Password</label>
                 </div>
 
                 <input type="submit" value="Sign In" className="sign-btn" />
@@ -171,6 +168,6 @@ const Login = () => {
       </div>
     </main>
   );
-}
+};
 
 export default Login;

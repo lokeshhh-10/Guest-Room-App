@@ -1,0 +1,52 @@
+
+
+a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.slide{
+    width: 100vw;
+    height: 80vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/assets/Home2.jpg);
+    background-position: center top;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.header-content {
+    margin-bottom: 250px;
+    color: whitesmoke;
+    text-align: center;
+    font-family: Poppins, sans-serif;
+
+    h1 {
+        font-size: 7vmin;
+    }
+
+    p {
+        font-size: 4.2vmin;
+        margin-bottom: 1.8rem;
+    }
+}
+
+.view-btn{
+    display: inline-block;
+    width: 30%;
+    height: 43px;
+    background-color: #7f46f0;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: whitesmoke;
+        color: black;
+    }
+}
