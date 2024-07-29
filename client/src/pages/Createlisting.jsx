@@ -536,7 +536,7 @@ const CreateListing = () => {
         </form>
       </div>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
