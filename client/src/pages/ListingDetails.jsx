@@ -183,7 +183,6 @@ const ListingDetails = () => {
         </div>
       </div>
 
-      <Footer />
     </>
   );
 };
