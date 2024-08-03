@@ -60,7 +60,7 @@ $ npm start
 ```
  
 ### Credentials:
-#### This id already registered in database you can also create another account in the Sign-up page
+#### Sample Email and Password you can also create in signup page
 ##### Email : sample1@gmail.com
 ##### Password : sample1@123
 
