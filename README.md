@@ -11,9 +11,6 @@
   <a href="#introduction">Introduction</a> •
   <a href="#installation-guide">Installation Guide</a> •
   <a href="#screenshots">Screenshots</a> •
-  <a href="#credits">Credits</a> •
-  <a href="#license">License</a> •
-  <a href="#contributors">Contributors</a> 
 </p>
 
 ## ℹ️Introduction
