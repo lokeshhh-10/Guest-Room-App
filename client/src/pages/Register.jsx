@@ -1,24 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/register.scss";
 
 const Register = () => {
-  useEffect(() => {
-    const inputs = document.querySelectorAll(".input-field");
-    inputs.forEach((inp) => {
-      inp.addEventListener("focus", () => {
-        inp.classList.add("active");
-      });
-      inp.addEventListener("blur", () => {
-        if (inp.value != "") return;
-        inp.classList.remove("active");
-      });
-    });
-  }, []);
+  // Create refs for the input fields
+  const inputRefs = useRef([]);
 
-  // Initialing the formData using the useState hook
-  // formData is an object that holds the input values for a form
-
+  // Initializing formData using the useState hook
   const [formData, setFormData] = useState({
     firstName: "",
     email: "",
@@ -27,15 +15,40 @@ const Register = () => {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const handleFocus = (event) => {
+      event.target.classList.add("active");
+    };
+
+    const handleBlur = (event) => {
+      if (event.target.value !== "") return;
+      event.target.classList.remove("active");
+    };
+
+    inputRefs.current.forEach((ref) => {
+      if (ref) {
+        ref.addEventListener("focus", handleFocus);
+        ref.addEventListener("blur", handleBlur);
+      }
+    });
+
+    return () => {
+      inputRefs.current.forEach((ref) => {
+        if (ref) {
+          ref.removeEventListener("focus", handleFocus);
+          ref.removeEventListener("blur", handleBlur);
+        }
+      });
+    };
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
-      ...formData, //for copy this exiting data
+      ...formData,
       [name]: value,
     });
   };
-
-  console.log(formData);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,7 +56,7 @@ const Register = () => {
     try {
       const register_form = new FormData();
 
-      for (var key in formData) {
+      for (const key in formData) {
         register_form.append(key, formData[key]);
       }
 
@@ -86,6 +99,7 @@ const Register = () => {
                     name="firstName"
                     value={formData.firstName}
                     onChange={handleChange}
+                    ref={(el) => (inputRefs.current[0] = el)}
                     className="input-field"
                     required
                   />
@@ -96,8 +110,8 @@ const Register = () => {
                     type="email"
                     name="email"
                     value={formData.email}
-                    // defaultValue={formData.email}
                     onChange={handleChange}
+                    ref={(el) => (inputRefs.current[1] = el)}
                     className="input-field"
                     autoComplete="off"
                     required
@@ -111,6 +125,7 @@ const Register = () => {
                     value={formData.password}
                     onChange={handleChange}
                     minLength={4}
+                    ref={(el) => (inputRefs.current[2] = el)}
                     className="input-field"
                     autoComplete="off"
                     required

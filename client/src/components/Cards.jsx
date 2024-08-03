@@ -7,7 +7,7 @@ import {
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setWishList } from "../redux/state";
+
 
 const Cards = ({
   listingId,
@@ -59,7 +59,6 @@ const Cards = ({
         }
       );
       const data = await response.json();
-      dispatch(setWishList(data.wishList));
     } else {
       return;
     }
@@ -115,7 +114,7 @@ const Cards = ({
         <>
           <p>{type}</p>
           <p>
-            <span>${price}</span> per night
+            <span>₹{price}</span> per night
           </p>
         </>
       ) : (
@@ -124,7 +123,7 @@ const Cards = ({
             {startDate} - {endDate}
           </p>
           <p>
-            <span>${totalPrice}</span> total
+            <span>₹{totalPrice}</span> total
           </p>
         </>
       )}

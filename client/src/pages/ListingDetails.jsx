@@ -1,19 +1,20 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/listingdetails.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import { facilities } from "../data";
 import { Person } from "@mui/icons-material";
 import variables from "../styles/variables.js";
-
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { DateRange } from "react-date-range";
 import Loader from "../components/Loader";
 import Navbar from "../components/Navbar";
 import { useSelector } from "react-redux";
+import { Alert, Snackbar } from "@mui/material";
 
 const ListingDetails = () => {
   const [loading, setLoading] = useState(true);
+  const [openAlert, setOpenAlert] = useState(false);
 
   const { listingId } = useParams();
   const [listing, setListing] = useState(null);
@@ -51,8 +52,22 @@ const ListingDetails = () => {
   ]);
 
   const handleSelect = (ranges) => {
-    // Update the selected date range when user makes a selection
+    const selectedStart = new Date(ranges.selection.startDate);
+    const selectedEnd = new Date(ranges.selection.endDate);
+    const dayCount = Math.round(
+      (selectedEnd - selectedStart) / (1000 * 60 * 60 * 24)
+    );
+
+    if (dayCount > listing.stayCount) {
+      setOpenAlert(true);
+      return; // Exit the function to prevent updating the state with an invalid date range
+    }
+
     setDateRange([ranges.selection]);
+  };
+
+  const handleCloseAlert = () => {
+    setOpenAlert(false);
   };
 
   const start = new Date(dateRange[0].startDate);
@@ -162,15 +177,15 @@ const ListingDetails = () => {
               <DateRange ranges={dateRange} onChange={handleSelect} />
               {dayCount > 1 ? (
                 <h2>
-                  ${listing.price} x {dayCount} nights
+                  ₹{listing.price} x {dayCount} nights
                 </h2>
               ) : (
                 <h2>
-                  ${listing.price} x {dayCount} night
+                  ₹{listing.price} x {dayCount} night
                 </h2>
               )}
 
-              <h2>Total price: ${listing.price * dayCount}</h2>
+              <h2>Total price: ₹{listing.price * dayCount}</h2>
               <p>Start Date: {dateRange[0].startDate.toDateString()}</p>
               <p>End Date: {dateRange[0].endDate.toDateString()}</p>
 
@@ -178,6 +193,20 @@ const ListingDetails = () => {
                 BOOKING
               </button>
             </div>
+
+            {/* Alert Positioned Above Date Range */}
+            <Snackbar
+              open={openAlert}
+              autoHideDuration={2000}
+              onClose={handleCloseAlert}
+              
+              anchorOrigin={{ vertical: "top", horizontal: "center" }}
+            >
+              <Alert onClose={handleCloseAlert} severity="warning">
+                You can only select a date range of 1 to {listing.stayCount}{" "}
+                days.
+              </Alert>
+            </Snackbar>
           </div>
         </div>
       </div>

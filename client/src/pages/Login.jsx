@@ -1,58 +1,60 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../styles/register.scss";
 import { setLogin } from "../redux/state";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Snackbar, Alert } from "@mui/material";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [alertOpen, setAlertOpen] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [alertSeverity, setAlertSeverity] = useState("error"); // 'success' or 'error'
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // Refs for input fields
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+
   useEffect(() => {
-    const inputs = document.querySelectorAll(".input-field");
-    inputs.forEach((inp) => {
-      inp.addEventListener("focus", () => {
-        inp.classList.add("active");
-      });
-      inp.addEventListener("blur", () => {
-        if (inp.value != "") return;
-        inp.classList.remove("active");
-      });
-    });
+    const handleFocus = (event) => {
+      event.target.classList.add("active");
+    };
+
+    const handleBlur = (event) => {
+      if (event.target.value === "") {
+        event.target.classList.remove("active");
+      }
+    };
+
+    const emailInput = emailRef.current;
+    const passwordInput = passwordRef.current;
+
+    if (emailInput) {
+      emailInput.addEventListener("focus", handleFocus);
+      emailInput.addEventListener("blur", handleBlur);
+    }
+
+    if (passwordInput) {
+      passwordInput.addEventListener("focus", handleFocus);
+      passwordInput.addEventListener("blur", handleBlur);
+    }
+
+    // Cleanup event listeners on unmount
+    return () => {
+      if (emailInput) {
+        emailInput.removeEventListener("focus", handleFocus);
+        emailInput.removeEventListener("blur", handleBlur);
+      }
+      if (passwordInput) {
+        passwordInput.removeEventListener("focus", handleFocus);
+        passwordInput.removeEventListener("blur", handleBlur);
+      }
+    };
   }, []);
-
-  // const handleSubmit = async (e) =>{
-  //   e.preventDefault()
-
-  //   try {
-  //     const response = await fetch('http://localhost:8080/auth/login',{
-  //       method : "POST",
-  //       headers : {
-  //         "Content-Type" : "application/json"
-  //       },
-  //       body : JSON.stringify({ email, password })
-  //     })
-
-  //     //Get data after fetching
-  //     const loggedIn = await response.json()
-
-  //     if (loggedIn) {
-  //       dispatch(
-  //         setLogin({
-  //           user: loggedIn.user,
-  //           token: loggedIn.token,
-  //         })
-  //       )
-  //       navigate("/");
-  //     }
-
-  //   } catch (err) {
-  //     console.log("Login failed", err.message);
-  //   }
-  // }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -73,6 +75,9 @@ const Login = () => {
       if (!response.ok) {
         const errorDetails = await response.text();
         console.log("Error details:", errorDetails);
+        setAlertMessage(`Error: ${errorDetails}`);
+        setAlertSeverity("error");
+        setAlertOpen(true);
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
@@ -90,7 +95,14 @@ const Login = () => {
       }
     } catch (err) {
       console.log("Login failed", err.message);
+      setAlertMessage(`Invalid username or password.`);
+      setAlertSeverity("error");
+      setAlertOpen(true);
     }
+  };
+
+  const handleAlertClose = () => {
+    setAlertOpen(false);
   };
 
   return (
@@ -106,7 +118,7 @@ const Login = () => {
 
               <div className="heading">
                 <h2>Welcome Back</h2>
-                <h6>Not registred yet?</h6>
+                <h6>Not registered yet?</h6>
                 <a href="/register" className="toggle">
                   Sign up
                 </a>
@@ -119,6 +131,7 @@ const Login = () => {
                     minLength="4"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    ref={emailRef}
                     className="input-field"
                     required
                   />
@@ -131,6 +144,7 @@ const Login = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     minLength="4"
+                    ref={passwordRef}
                     className="input-field"
                     required
                   />
@@ -140,7 +154,7 @@ const Login = () => {
                 <input type="submit" value="Sign In" className="sign-btn" />
 
                 <p className="text">
-                  Forgotten your password or you login datails?
+                  Forgotten your password or you login details?
                   <a href="#">Get help</a> signing in
                 </p>
               </div>
@@ -166,6 +180,17 @@ const Login = () => {
           </div>
         </div>
       </div>
+
+      <Snackbar
+        open={alertOpen}
+        autoHideDuration={3000}
+        onClose={handleAlertClose}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <Alert onClose={handleAlertClose} severity={alertSeverity}>
+          {alertMessage}
+        </Alert>
+      </Snackbar>
     </main>
   );
 };

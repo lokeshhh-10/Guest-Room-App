@@ -50,6 +50,10 @@ const ListingSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    stayCount:{
+      type: Number,
+      required : true,
+    },
     amenities: {
       type: Array,
       default:[]

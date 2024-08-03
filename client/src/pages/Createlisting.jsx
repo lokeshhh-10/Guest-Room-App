@@ -38,6 +38,8 @@ const CreateListing = () => {
   const [bedroomCount, setBedroomCount] = useState(1);
   const [bedCount, setBedCount] = useState(1);
   const [bathroomCount, setBathroomCount] = useState(1);
+  const [stayCount,setStayCount] = useState(1);
+  
 
   /* AMENITIES */
   const [amenities, setAmenities] = useState([]);
@@ -132,6 +134,7 @@ const CreateListing = () => {
       listingForm.append("bedroomCount", bedroomCount);
       listingForm.append("bedCount", bedCount);
       listingForm.append("bathroomCount", bathroomCount);
+      listingForm.append("stayCount", stayCount);
       listingForm.append("amenities", amenities);
       listingForm.append("title", formDescription.title);
       listingForm.append("description", formDescription.description);
@@ -239,7 +242,7 @@ const CreateListing = () => {
                 />
               </div>
             </div>
-              
+
             <div className="half">
               <div className="location">
                 <p>State</p>
@@ -372,6 +375,38 @@ const CreateListing = () => {
                       "&:hover": { color: variables.purple },
                     }}
                   />
+                </div>
+              </div>
+            </div>
+            <h3>Maximum length of stay</h3>
+            <div className="basics">
+              <div className="basics">
+                <div className="basic">
+                  <p>Days</p>
+                  <div className="basic_count">
+                    <RemoveCircleOutline
+                      onClick={() => {
+                        stayCount > 1 &&
+                          setStayCount(stayCount - 1);
+                      }}
+                      sx={{
+                        fontSize: "25px",
+                        cursor: "pointer",
+                        "&:hover": { color: variables.purple },
+                      }}
+                    />
+                    <p>{stayCount}</p>
+                    <AddCircleOutline
+                      onClick={() => {
+                        setStayCount(stayCount + 1);
+                      }}
+                      sx={{
+                        fontSize: "25px",
+                        cursor: "pointer",
+                        "&:hover": { color: variables.purple },
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -516,7 +551,7 @@ const CreateListing = () => {
                 required
               />
               <p>Now, set your PRICE</p>
-              <span>$</span>
+              <span>₹</span>
               <input
                 type="number"
                 placeholder="100"

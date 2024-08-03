@@ -15,7 +15,17 @@
     @include sm {
         padding: 40px 20px 120px;
     }
+    .date-range-container {
+        position: relative;
+    }
 
+    .custom-alert {
+        position: absolute;
+        top: -800px;
+        /* Adjust based on your layout */
+        right: -500px;
+        width: 100%;
+    }
     .title {
         display: flex;
         justify-content: space-between;
