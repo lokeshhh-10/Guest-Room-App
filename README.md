@@ -125,5 +125,40 @@ $ npm start
 
 ```
 
+## 🪟Screenshots
+### **Home Page**
+> * Home page.
+>
+>   ![1](https://github.com/user-attachments/assets/49a509e5-b6d6-4af6-8f72-1bcd5ad787a0)
+>
+
+
+### **Login - Signup Pages**
+> * User can login on this page.
+>
+>   ![2](https://github.com/user-attachments/assets/fe22a3a8-80ee-40ed-a47b-a7b8d1d0deb0)
+
+> * User can signup on this page.
+>
+>   ![3](https://github.com/user-attachments/assets/5fc77950-cbdf-4462-9484-9cc0db8110fc)
+>
+### **User Pages**
+> * User can login on this page.
+>
+>   ![4](https://github.com/user-attachments/assets/173a86d5-e1f6-4932-9ebb-1fc1372ca206)
+
+> * User can signup on this page.
+>
+>   ![5](https://github.com/user-attachments/assets/71416b44-e55b-4a1e-b0d3-c20efe4dcdaf)
+>
+### **Creating Rental Rooms**
+> * Host can create a rooms*
+>   
+>   ![5](https://github.com/user-attachments/assets/187f6354-6cbf-4ea5-86a0-1701aa267fbf)
+>
+### **Room Details**
+> * Booking page of the room*
+>   
+>   ![5](https://github.com/user-attachments/assets/89407f47-d319-40c1-af1b-3a7cada930e4)
 
 
