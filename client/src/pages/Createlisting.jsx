@@ -11,7 +11,6 @@ import { useState } from "react";
 import { BiTrash } from "react-icons/bi";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Footer from "../components/Footer";
 
 const CreateListing = () => {
   const [category, setCategory] = useState("");
@@ -240,10 +239,10 @@ const CreateListing = () => {
                 />
               </div>
             </div>
-
+              
             <div className="half">
               <div className="location">
-                <p>Province</p>
+                <p>State</p>
                 <input
                   type="text"
                   placeholder="Province"
@@ -535,8 +534,6 @@ const CreateListing = () => {
           </button>
         </form>
       </div>
-
-      {/* <Footer /> */}
     </>
   );
 };

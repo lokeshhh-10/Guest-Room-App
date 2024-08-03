@@ -40,7 +40,7 @@ const Listings = () => {
 
   return (
     <>
-      <div className="category-list">
+      {/* <div className="category-list">
         {categories?.map((category, index) => (
           <div
             className={`category ${
@@ -53,6 +53,10 @@ const Listings = () => {
             <p>{category.label}</p>
           </div>
         ))}
+      </div> */}
+      <div className="Top-Properties">
+        <h1>Stay at our top unique properties</h1>
+        <p>Experience the extraordinary at our unique properties!</p>
       </div>
 
       {loading ? (
