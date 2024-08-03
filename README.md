@@ -118,7 +118,8 @@ $ npm start
 "price":{"$numberInt":"999"},
 "createdAt":{"$date":{"$numberLong":"1722187747273"}},
 "updatedAt":{"$date":{"$numberLong":"1722187747273"}},
-"__v":{"$numberInt":"0"},"stayCount":{"$numberInt":"15"}}
+"__v":{"$numberInt":"0"},"stayCount":{"$numberInt":"15"}
+}
 
 ```
 
