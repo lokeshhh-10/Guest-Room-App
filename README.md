@@ -33,7 +33,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/lokeshwaran26/CartRabbit-Project.git
+$ git clone https://github.com/lokeshhh-10/Guest-Room-App.git
 ```
 
 ### Client side :
