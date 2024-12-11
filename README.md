@@ -11,9 +11,6 @@
   <a href="#introduction">Introduction</a> •
   <a href="#installation-guide">Installation Guide</a> •
   <a href="#screenshots">Screenshots</a> •
-  <a href="#credits">Credits</a> •
-  <a href="#license">License</a> •
-  <a href="#contributors">Contributors</a> 
 </p>
 
 ## ℹ️Introduction
@@ -60,7 +57,7 @@ $ npm start
 ```
  
 ### Credentials:
-#### This id already registered in database you can also create another account in the Sign-up page
+#### Sample Email and Password you can also create in signup page
 ##### Email : sample1@gmail.com
 ##### Password : sample1@123
 
@@ -113,15 +110,16 @@ $ npm start
 "bedCount":{"$numberInt":"3"},
 "bathroomCount":{"$numberInt":"3"},
 "amenities":[],
-"listingPhotoPaths":[],
-"title":"Cozy 3-Bedroom Apartment in the Heart of Downtown Springfield",
-"description":"Welcome to your new home! This cozy 2-bedroom, 1-bathroom apartment is located in the vibrant downtown area of Springfield. With modern amenities, a spacious layout, and stunning city views, this apartment is perfect for young professionals, couples, or small families. Enjoy the convenience of being close to shopping centers, restaurants, public transportation, and parks.",
+"listingPhotoPaths" :[],
+"title":"Cozy 3-Bedroom Apartment in Coimbatore",
+"description":"Welcome to your new home! This cozy 2-bedroom, 1-bathroom apartment is located in the vibrant downtown area of coimbatore. With modern amenities, a spacious layout, and stunning city views, this apartment is perfect for young professionals, couples, or small families. Enjoy the convenience of being close to shopping centers, restaurants, public transportation, and parks.",
 "highlight":"Prime Downtown Location Modern Amenities Spacious Layout",
-"highlightDesc":"Prime Downtown Location: Situated in the heart of Springfield, you'll be just steps away from all the action. Easy access to public transportation and major highways.\r\n\r\nModern Amenities: The apartment features stainless steel appliances, in-unit laundry, central air conditioning, and high-speed internet.",
+"highlightDesc":"Prime Downtown Location: Situated in the heart of Springfield, you'll be just steps away from all the action. Easy access to public transportation and major highways. Modern Amenities: The apartment features stainless steel appliances, in-unit laundry, central air conditioning, and high-speed internet.",
 "price":{"$numberInt":"999"},
 "createdAt":{"$date":{"$numberLong":"1722187747273"}},
 "updatedAt":{"$date":{"$numberLong":"1722187747273"}},
-"__v":{"$numberInt":"0"},"stayCount":{"$numberInt":"15"}}
+"__v":{"$numberInt":"0"},"stayCount":{"$numberInt":"15"}
+}
 
 ```
 
