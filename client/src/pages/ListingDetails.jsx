@@ -51,12 +51,34 @@ const ListingDetails = () => {
     },
   ]);
 
+  
+  const handleCloseAlert = () => {
+    setOpenAlert(false);
+  };
+  
+  const start = new Date(dateRange[0].startDate);
+  const end = new Date(dateRange[0].endDate);
+  const dayCount = Math.round(end - start) / (1000 * 60 * 60 * 24); // Calculate the difference in day unit
+  
   const handleSelect = (ranges) => {
+
     const selectedStart = new Date(ranges.selection.startDate);
     const selectedEnd = new Date(ranges.selection.endDate);
     const dayCount = Math.round(
       (selectedEnd - selectedStart) / (1000 * 60 * 60 * 24)
     );
+
+    
+    
+    const  currentDate =  new Date()
+    const date = currentDate.getDate()
+
+    if (parseInt(date) < selectedStart) {
+      setOpenAlert(true);
+      console.log(selectedStart);
+      console.log(date);
+      return;
+    }
 
     if (dayCount > listing.stayCount) {
       setOpenAlert(true);
@@ -65,15 +87,6 @@ const ListingDetails = () => {
 
     setDateRange([ranges.selection]);
   };
-
-  const handleCloseAlert = () => {
-    setOpenAlert(false);
-  };
-
-  const start = new Date(dateRange[0].startDate);
-  const end = new Date(dateRange[0].endDate);
-  const dayCount = Math.round(end - start) / (1000 * 60 * 60 * 24); // Calculate the difference in day unit
-
   /* SUBMIT BOOKING */
   const customerId = useSelector((state) => state?.user?._id);
 

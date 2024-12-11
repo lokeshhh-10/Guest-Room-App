@@ -38,8 +38,7 @@ const CreateListing = () => {
   const [bedroomCount, setBedroomCount] = useState(1);
   const [bedCount, setBedCount] = useState(1);
   const [bathroomCount, setBathroomCount] = useState(1);
-  const [stayCount,setStayCount] = useState(1);
-  
+  const [stayCount, setStayCount] = useState(1);
 
   /* AMENITIES */
   const [amenities, setAmenities] = useState([]);
@@ -70,14 +69,6 @@ const CreateListing = () => {
   };
 
   const handleDragPhoto = (result) => {
-    // if (!result.destination) return;
-
-    // const items = Array.from(photos);
-    // const [reorderedItem] = items.splice(result.source.index, 1);
-    // items.splice(result.destination.index, 0, reorderedItem);
-
-    // setPhotos(items);
-
     if (!result.destination) return;
 
     const reorderedItems = reorder(
@@ -248,7 +239,7 @@ const CreateListing = () => {
                 <p>State</p>
                 <input
                   type="text"
-                  placeholder="Province"
+                  placeholder="State"
                   name="province"
                   value={formLocation.province}
                   onChange={handleChangeLocation}
@@ -386,8 +377,7 @@ const CreateListing = () => {
                   <div className="basic_count">
                     <RemoveCircleOutline
                       onClick={() => {
-                        stayCount > 1 &&
-                          setStayCount(stayCount - 1);
+                        stayCount > 1 && setStayCount(stayCount - 1);
                       }}
                       sx={{
                         fontSize: "25px",
