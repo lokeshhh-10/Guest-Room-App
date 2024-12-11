@@ -16,7 +16,7 @@ app.use(express.static("public"));
 app.use("/auth", authRoutes);
 app.use("/properties", listingRoutes)
 
-const PORT = 8080;
+// const PORT = 8080;
 // Mongoose Setup
 mongoose.connect(process.env.MONGO_URL, {
   dbName: "Rabbit_Homes",
@@ -24,7 +24,7 @@ mongoose.connect(process.env.MONGO_URL, {
   useUnifiedTopology: true,
 })
 .then(() => {
-  app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
+  app.listen(process.env.PORT, () => console.log(`Server running on port: ${process.env.PORT}`));
   console.log('MongoDB connected successfully');
 })
 .catch((err) => console.log(`${err} did not connect`));
