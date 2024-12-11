@@ -5,6 +5,7 @@ import Loader from "./Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { setListings } from "../redux/state";
 import Cards from "./Cards";
+const API_URL = import.meta.env.VITE_API_URL;
 
 
 const Listings = () => {
@@ -19,8 +20,8 @@ const Listings = () => {
     try {
       const response = await fetch(
         selectedCategory !== "All"
-          ? `http://localhost:8080/properties?category=${selectedCategory}`
-          : "http://localhost:8080/properties",
+          ? `${API_URL}/properties?category=${selectedCategory}`
+          : `${API_URL}/properties`,
         {
           method: "GET",
         }

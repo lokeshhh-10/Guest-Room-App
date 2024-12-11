@@ -7,6 +7,8 @@ import {
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+const API_URL = import.meta.env.VITE_API_URL;
+
 
 
 const Cards = ({
@@ -50,7 +52,7 @@ const Cards = ({
   const patchWishList = async () => {
     if (user?._id !== creator._id) {
       const response = await fetch(
-        `http://localhost:8080/users/${user?._id}/${listingId}`,
+        `${API_URL}/users/${user?._id}/${listingId}`,
         {
           method: "PATCH",
           header: {
@@ -79,7 +81,7 @@ const Cards = ({
           {listingPhotoPaths?.map((photo, index) => (
             <div key={index} className="slide">
               <img
-                src={`http://localhost:8080/${photo?.replace("public", "")}`}
+                src={`${API_URL}/${photo?.replace("public", "")}`}
                 alt={`photo ${index + 1}`}
               />
               <div

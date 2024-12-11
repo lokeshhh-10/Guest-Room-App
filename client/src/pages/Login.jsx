@@ -4,6 +4,7 @@ import { setLogin } from "../redux/state";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Snackbar, Alert } from "@mui/material";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -62,7 +63,7 @@ const Login = () => {
     try {
       console.log({ email, password });
 
-      const response = await fetch("http://localhost:8080/auth/login", {
+      const response = await fetch(`${API_URL}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

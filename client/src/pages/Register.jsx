@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/register.scss";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Register = () => {
   // Create refs for the input fields
@@ -62,7 +63,7 @@ const Register = () => {
 
       console.log("Form data:", ...register_form.entries());
 
-      const response = await fetch("http://localhost:8080/auth/register", {
+      const response = await fetch(`${API_URL}/auth/register`, {
         method: "POST",
         body: register_form,
       });

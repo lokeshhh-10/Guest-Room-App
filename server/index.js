@@ -16,8 +16,8 @@ app.use(express.static("public"));
 app.use("/auth", authRoutes);
 app.use("/properties", listingRoutes)
 
-// Mongoose Setup
 const PORT = 8080;
+// Mongoose Setup
 mongoose.connect(process.env.MONGO_URL, {
   dbName: "Rabbit_Homes",
   useNewUrlParser: true,

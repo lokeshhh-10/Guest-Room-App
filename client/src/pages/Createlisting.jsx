@@ -11,6 +11,7 @@ import { useState } from "react";
 import { BiTrash } from "react-icons/bi";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const CreateListing = () => {
   const [category, setCategory] = useState("");
@@ -139,7 +140,7 @@ const CreateListing = () => {
       });
 
       /* Send a POST request to server */
-      const response = await fetch("http://localhost:8080/properties/create", {
+      const response = await fetch(`${API_URL}/properties/create`, {
         method: "POST",
         body: listingForm,
       });
