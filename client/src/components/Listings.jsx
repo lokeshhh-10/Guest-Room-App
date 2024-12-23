@@ -5,7 +5,7 @@ import Loader from "./Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { setListings } from "../redux/state";
 import Cards from "./Cards";
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = "http://localhost:5000" || import.meta.env.VITE_API_URL;
 
 
 const Listings = () => {

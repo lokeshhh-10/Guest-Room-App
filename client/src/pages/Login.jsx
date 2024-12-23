@@ -4,7 +4,7 @@ import { setLogin } from "../redux/state";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Snackbar, Alert } from "@mui/material";
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = "http://localhost:5000" || import.meta.env.VITE_API_URL;
 
 const Login = () => {
   const [email, setEmail] = useState("");

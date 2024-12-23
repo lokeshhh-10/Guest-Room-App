@@ -7,7 +7,28 @@ const cors = require("cors");
 const authRoutes = require("./routes/auth.js");
 const listingRoutes = require("./routes/listing.js")
 
-app.use(cors());
+const allowedOrigins = [
+  'http://localhost:5173', // Development frontend
+  'https://guest-room-app-ns3c.vercel.app/', // Production frontend
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+}));
+
+// Allow all origins
+// app.use(cors());
+// Allow specific origin(s)
+// app.use(cors({
+//   origin: 'https://guest-room-app-ns3c.vercel.app/'
+// }));
+
 app.use(express.json());
 // This serves the static files from the public directory
 app.use(express.static("public")); 
@@ -15,6 +36,8 @@ app.use(express.static("public"));
 // Routes
 app.use("/auth", authRoutes);
 app.use("/properties", listingRoutes)
+
+
 const PORT = process.env.PORT || 3000;
 
 // const PORT = 8080;

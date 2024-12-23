@@ -11,7 +11,7 @@ import Loader from "../components/Loader";
 import Navbar from "../components/Navbar";
 import { useSelector } from "react-redux";
 import { Alert, Snackbar } from "@mui/material";
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = "http://localhost:5000" || import.meta.env.VITE_API_URL;
 
 const ListingDetails = () => {
   const [loading, setLoading] = useState(true);
