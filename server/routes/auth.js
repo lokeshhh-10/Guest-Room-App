@@ -62,6 +62,7 @@ router.post("/login", async (req, res) =>{
     try {
         //Take all the info form form
         const { email, password } = req.body
+        console.log("Welcome to Login!")
 
         //Check if user exits
         const user = await User.findOne({email});
