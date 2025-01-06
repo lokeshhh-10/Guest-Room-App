@@ -37,14 +37,6 @@ app.use(express.static("public"));
 app.use("/auth", authRoutes);
 app.use("/properties", listingRoutes)
 
-app.get('/auth/login', (req, res) => {
-  res.send(`Auth route with param: ${req.params.param}`);
-});
-
-app.get('/properties/:param', (req, res) => {
-  res.send(`Properties route with param: ${req.params.param}`);
-});
-
 
 const PORT = process.env.PORT || 3000;
 
