@@ -37,7 +37,7 @@ app.use(express.static("public"));
 app.use("/auth", authRoutes);
 app.use("/properties", listingRoutes)
 
-app.get('/auth/:param', (req, res) => {
+app.get('/auth/login', (req, res) => {
   res.send(`Auth route with param: ${req.params.param}`);
 });
 
