@@ -59,10 +59,10 @@ router.post("/register", upload.none(), async ( req, res ) =>{
 
 // USER LOGIN
 router.post("/login", async (req, res) =>{
+    console.log("Welcome to Login!")
     try {
         //Take all the info form form
         const { email, password } = req.body
-        console.log("Welcome to Login!")
 
         //Check if user exits
         const user = await User.findOne({email});
